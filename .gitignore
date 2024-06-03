@@ -1,1 +1,6 @@
 .idea
+migrations
+__pyache__
+info.db
+*.pyc
+hello/__pycache__/
