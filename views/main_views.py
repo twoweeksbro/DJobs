@@ -11,4 +11,6 @@ def hello_world():
 
 @bp.route('/')
 def index():
-   return redirect(url_for('question._list'))
+    return render_template('pages/main.html')
+# def index():
+#    return redirect(url_for('question._list'))
