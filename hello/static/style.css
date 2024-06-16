@@ -9,14 +9,15 @@ $carousel-control-width:             15%;
     object-fit: cover;
 }
 
+/*
 nav{
             margin:5px;
             text-align: center;
             font-size:30px;
             line-height: 10px;
             border:solid 1px black;
-            background-color: white;
+
         }
         nav{
         position:sticky;
-}
+}*/

@@ -1,5 +1,34 @@
-<nav class="nav" style="position: fixed; bottom: 5px; right: 5px; width:100%; height:50px;z-index: 1000;">
+<!-- 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="position: fixed; bottom: 5px; right: 5px;
+border: solid 1px black;width: 500px; height: 50px;>
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">여기다 정보 넣기</a>
+        <a class="navbar-brand" href="{{ url_for('main.index') }}">Spider</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if g.user %}
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.name }} (로그아웃)</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.signup') }}">
+                        <img src="../static/images/house-solid.svg" alt="Home" /><span>계정생성</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
     </div>
 </nav>
