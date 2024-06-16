@@ -1,6 +1,7 @@
 # D-Jobs 아카데미 프로젝트 2기 `미래차`
 
 
+- pip install -r requirements.txt
 
 
 # Window
