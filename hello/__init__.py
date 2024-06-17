@@ -18,10 +18,11 @@ def create_app():
 
 
     # Blueprint
-    from views import main_views, question_views, answer_views, auth_views
+    from views import main_views, question_views, answer_views, auth_views, car_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(answer_views.bp)
     app.register_blueprint(auth_views.bp)
+    app.register_blueprint(car_views.bp)
 
     return app
