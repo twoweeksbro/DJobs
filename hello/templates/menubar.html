@@ -1,6 +1,6 @@
 <!-- 메뉴바 -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="position: fixed; bottom: 5px; right: 5px;
-border: solid 1px black;width: 500px; height: 50px;>
+border: solid 1px black;width: 500px; height: 50px; padding-top: 60px;>
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url_for('main.index') }}">Spider</a>
         <button class="navbar-toggler" type="button"
@@ -22,10 +22,15 @@ border: solid 1px black;width: 500px; height: 50px;>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('auth.signup') }}">
-                        <img src="../static/images/house-solid.svg" alt="Home" /><span>계정생성</span></a>
+                        <img src="../static/images/house-solid.svg" alt="Home" /><span>Home</span></a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.login') }}">
+                        <img src="../static/images/charging-station-solid.svg" alt="Charging" /><span>Charging</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a>
+                    <a class="nav-link" href="{{ url_for('auth.login') }}">
+                        <img src="../static/images/file-regular.svg" alt="MyPage" /><span>My Page</span></a>
                 </li>
             </ul>
             {% endif %}
