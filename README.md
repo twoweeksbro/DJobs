@@ -9,3 +9,7 @@
 - $env:FLASK_APP = "hello"
 - set FLASK_DEBUG = true
 - flask run
+
+# Mac
+- export FLASK_APP = hello
+- flask run
