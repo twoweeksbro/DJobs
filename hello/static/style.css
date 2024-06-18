@@ -1,3 +1,6 @@
+@media screen and (min-device-width: 375px) and (min-device-height: 812px){
+}
+
 .carousel-item{
 $carousel-control-width:             15%;
 
@@ -69,16 +72,21 @@ button {
 
 
   /* 닫기 버튼 스타일 */
-  .close-button {
+.close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
 
-  .close-button:hover,
-  .close-button:focus {
+.close-button:hover,
+.close-button:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
+
+#menubar > li > a > img {
+    height:40px;
+    width: 40px;
+}
