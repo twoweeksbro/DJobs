@@ -122,7 +122,8 @@ nav-link-color: black;
     background-color: white;
     color: black;
     border:solid 1px black;
-    width: 450px;
+    width: min(700px,100%);
+
 
 }
 
