@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     <!-- pybo CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
     <title>D-Jobs Project!</title>
 </head>
 <body>
+<div class="content">
 <!-- 네비게이션바 -->
 {% include "navbar.html" %}
 
@@ -19,6 +23,8 @@
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}
+
+</div>
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 
 
@@ -32,6 +38,9 @@
 <script src="https://kit.fontawesome.com/cac3217c09.js" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
 <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
-<script src="script.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=de7fe06554c692cba40c8f016a1625b7"></script>
+<script src="../static/script.js"></script>
+
+
 </body>
 </html>
