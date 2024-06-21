@@ -21,27 +21,39 @@
 
 
     <div>
-        <h4>주차 자리 선택</h4>
+        <h4>주차 위치</h4>
 
         <!-- Button trigger modal -->
+        <!-- 모달을 실행할 버튼 -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
+            주차 위치 선택
         </button>
 
-        <!-- Modal -->
+        <!-- 모달 -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">주차 위치 선택</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box">12</div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-primary">선택하기</button>
                     </div>
                 </div>
             </div>
@@ -49,9 +61,10 @@
     </div>
 
     <div>
-        <h4>주차 자리 </h4>
+        <h4>선택된 주차 위치: </h4>
     </div>
     <div>
+        <h4>차종</h4>
         <select id="model" class="form-select" aria-label="Default select example">
             <option selected value="../../static/images/car.png">차종 선택</option>
             <option value="../../static/images/spider.jpg">📃현대 아이오닉5</option>
@@ -61,7 +74,7 @@
             <option value="5">🧑‍🎨테슬라 모델 Y</option>
             <option value="6"></option>
         </select>
-        <img id="myImg" src="../../static/images/spider.jpg" />
+        <img id="myImg" src="../../static/images/spider.jpg"/>
     </div>
 
     <button type="submit" class="btn btn-primary">충전 등록 !</button>
@@ -77,6 +90,7 @@
     }
     changeImage();
     changeimg.onchange = changeImage;
+
 </script>
 
 {% endblock %}
