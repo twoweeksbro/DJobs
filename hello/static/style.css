@@ -9,9 +9,19 @@ body{
 
 }
 .content{
-    text-align: center;
-    background-color:black;
-    color: white;
+/*    text-align: center;*/
+    background-color:white;
+    color: black;
+}
+
+.navbar{
+/*
+background-color: rgb(68,124,255)!important;
+*/
+background-color: rgb(30,107,255)!important;
+}
+.navbar a{
+    color: white !important;
 }
 
 nav, h1, h2, h3, h4, h5, h6, p, li, button, input {
@@ -27,6 +37,10 @@ nav, h1, h2, h3, h4, h5, h6, p, li, button, input {
 }
 
 
+img{
+    width: min(400px,100%);
+    height: min(400px, 100%);
+}
 
 .carousel-item{
 $carousel-control-width:             15%;
@@ -115,6 +129,7 @@ button {
 .nav{
 nav-link-color: black;
 }
+
 
 
 #menubar{

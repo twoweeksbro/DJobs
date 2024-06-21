@@ -3,55 +3,80 @@
 {% block content %}
 <h2>D-Jobs님 환영합니다.</h2>
 
-<div>
+
 <div id="map" style="width:100%;height:350px;"></div>
 <p id="result"></p>
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=de7fe06554c692cba40c8f016a1625b7"></script>
-	<script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=de7fe06554c692cba40c8f016a1625b7"></script>
+<script>
 
 </script>
-    <h4>주차장 위치</h4>
+<h4>주차장 위치</h4>
+<form>
     <select class="form-select" aria-label="Default select example">
-  <option selected>주차장 선택</option>
-  <option value="1">📃대구테크비즈센터</option>
-  <option value="2">🧑‍🎨삼성창조캠퍼스</option>
-  <option value="3">---준비중입니다---</option>
-</select>
-
-</div>
-
-<div>
+        <option selected>주차장 선택</option>
+        <option value="1">📃대구테크비즈센터</option>
+        <option value="2">🧑‍🎨삼성창조캠퍼스</option>
+        <option value="3">---준비중입니다---</option>
+    </select>
 
 
+    <div>
+        <h4>주차 자리 선택</h4>
 
-    <h4>주차 자리 선택</h4>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
+    <div>
+        <h4>주차 자리 </h4>
+    </div>
+    <div>
+        <select id="model" class="form-select" aria-label="Default select example">
+            <option selected value="../../static/images/car.png">차종 선택</option>
+            <option value="../../static/images/spider.jpg">📃현대 아이오닉5</option>
+            <option value="2">🧑‍🎨제네시스 GV60</option>
+            <option value="3">기아 EV6</option>
+            <option value="../../static/TeslaModel3.png">테슬라 모델 3</option>
+            <option value="5">🧑‍🎨테슬라 모델 Y</option>
+            <option value="6"></option>
+        </select>
+        <img id="myImg" src="../../static/images/spider.jpg" />
+    </div>
 
+    <button type="submit" class="btn btn-primary">충전 등록 !</button>
+</form>
 
-</div>
+<script>
+    let changeimg = document.getElementById("model");
+    let myImg = document.getElementById("myImg");
+
+    function changeImage(){
+        let index = changeimg.selectedIndex;
+        myImg.src = changeimg.options[index].value;
+    }
+    changeImage();
+    changeimg.onchange = changeImage;
+</script>
 
 {% endblock %}
