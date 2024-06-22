@@ -42,3 +42,11 @@ def submit():
     model = data.get('model')
     print(f"Received name: {name}, parking: {parking}, position: {position}, model: {model}")
     return jsonify({'name':name,'parking':parking,'position':position,'model':model })
+
+@bp.route('/queue')
+def queue():
+    return render_template('pages/selectList.html')
+
+@bp.route('/samsung')
+def samsung():
+    return render_template('pages/samsung.html')

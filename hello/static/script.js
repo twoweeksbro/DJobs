@@ -10,7 +10,7 @@ var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리
 
 
 // Polynominal
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
         center: new kakao.maps.LatLng(35.88390603320519,  128.5961273987009), // 지도의 중심좌표
         level: 2 // 지도의 확대 레벨
