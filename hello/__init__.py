@@ -16,6 +16,9 @@ def create_app():
     migrate.init_app(app,db)
     from . import models
 
+    # filter
+    from .filter import format_datetime
+    app.jinja_env.filters['datetime'] = format_datetime
 
     # Blueprint
     from views import main_views, question_views, answer_views, auth_views, car_views

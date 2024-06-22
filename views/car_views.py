@@ -17,10 +17,11 @@ def charging_page():
         position = data.get('position')
         model = data.get('model')
 
+        minn = 10
         cnt = Charge.query.count()
-        minn = 5*cnt
+        minn = minn + int(cnt/3)
 
-        cha = Charge(name=minn,parking=parking,position=position,create_date=datetime.now(),expected_time=minn)
+        cha = Charge(name=name,parking=parking,position=position,model=model,create_date=datetime.now(),expected_time=minn)
 
 
         db.session.add(cha)
@@ -33,6 +34,7 @@ def charging_page():
 @bp.route('/mypage')
 def my_page():
     return render_template('pages/mypage.html')
+
 @bp.route('/submit', methods=['POST','GET'])
 def submit():
     data = request.get_json()
@@ -49,4 +51,14 @@ def queue():
 
 @bp.route('/samsung')
 def samsung():
-    return render_template('pages/samsung.html')
+    car_list = Charge.query.filter_by(parking="삼성창조캠퍼스").order_by(Charge.create_date.asc())
+    # car_list = Charge.query.filter_by(parking="대구테크비즈센터").order_by(Charge.create_date.asc())
+    # car_list = Charge.query.order_by(Charge.create_date.asc())
+    return render_template('pages/samsung.html', car_list=car_list)
+
+@bp.route('/tech')
+def tech():
+    # car_list = Charge.query.filter_by(parking="삼성창조캠퍼스").order_by(Charge.create_date.asc())
+    car_list = Charge.query.filter_by(parking="대구테크비즈센터").order_by(Charge.create_date.asc())
+    # car_list = Charge.query.order_by(Charge.create_date.asc())
+    return render_template('pages/tech.html', car_list=car_list)

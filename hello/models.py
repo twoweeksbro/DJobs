@@ -22,7 +22,8 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
 
 class Charge(db.Model):
-    name = db.Column(db.String(100), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
     parking = db.Column(db.String(50))
     position = db.Column(db.String(20))
     model = db.Column(db.String(100))

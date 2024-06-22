@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> 대구 테크비즈센터 </h1>
+<div class="fixed-table-container">
+    <div class="fixed-table-body">
+        <table class="table" style="white-space: nowrap;">
+            <thead>
+            <tr class="table-white">
+                <th>순번</th>
+                <th>사용자</th>
+                <th>주차장</th>
+                <th>위치</th>
+                <th>차종</th>
+                <th>시간</th>
+                <th>예상 시간(분)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if car_list %}
+            {% for car in car_list %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ car.name }}</td>
+                <td>{{ car.parking }}</td>
+                <td>{{ car.position }}</td>
+                <td>{{ car.model }}</td>
+                <td>{{ car.create_date|datetime }}</td>
+                <td>{{ car.expected_time }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td>현재 충전 대기중인 차량이 없습니다.</td>
+            </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+{% endblock %}

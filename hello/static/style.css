@@ -107,6 +107,9 @@ display: flex;
           font-size: 1.5rem;
           cursor: pointer;
 }
+.fixed-table-body {
+  overflow-x: auto;
+}
 
 #menubar{
     margin: auto;
