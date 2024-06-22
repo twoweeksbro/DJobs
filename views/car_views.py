@@ -18,9 +18,9 @@ def charging_page():
         model = data.get('model')
 
         cnt = Charge.query.count()
+        minn = 5*cnt
 
-
-        cha = Charge(name=name,parking=parking,position=position,create_date=datetime.now(),expected_time="test")
+        cha = Charge(name=minn,parking=parking,position=position,create_date=datetime.now(),expected_time=minn)
 
 
         db.session.add(cha)
