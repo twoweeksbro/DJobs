@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template,url_for, request, jsonify
+from flask import Blueprint, render_template,url_for, request, jsonify, session, g
 
 from datetime import datetime
 from werkzeug.utils import redirect
@@ -37,7 +37,8 @@ def charging_page():
 @bp.route('/mypage')
 @login_required
 def my_page():
-    return render_template('pages/mypage.html')
+    car_list = Charge.query.filter_by(name=g.user.name).order_by(Charge.create_date.desc())
+    return render_template('pages/mypage.html',car_list=car_list)
 
 @bp.route('/submit', methods=['POST','GET'])
 def submit():

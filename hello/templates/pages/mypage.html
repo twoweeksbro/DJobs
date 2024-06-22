@@ -1,7 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2> My car </h2>
-<div class="pics">
+<h2> {{ g.user.name }} 님 환영합니다! </h2>
+
+<h4> 충전 내역 </h4>
+<div class="fixed-table-container">
+    <div class="fixed-table-body">
+        <table class="table" style="white-space: nowrap;">
+            <thead>
+            <tr class="table-white">
+                <th>날짜</th>
+                <th>사용자</th>
+                <th>주차장</th>
+                <th>위치</th>
+                <th>차종</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if car_list %}
+            {% for car in car_list %}
+            <tr>
+                <td>{{ car.create_date|datetime }}</td>
+                <td>{{ car.name }}</td>
+                <td>{{ car.parking }}</td>
+                <td>{{ car.position }}</td>
+                <td>{{ car.model }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td>사용 내역이 없습니다.</td>
+            </tr>
+
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--<div class="pics">
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -40,20 +75,17 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-</div>
+</div>-->
+
 <br/>
 <!-- * 카카오맵 - 지도퍼가기 -->
 <!-- 1. 지도 노드 -->
 <h2> Map </h2>
 <div id="daumRoughmapContainer1717938479695" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
-<br/>
-<br/>
-<br/>
-<br/>
 
 <div style="height: 400px">
-<button type="button" class="btn btn-primary">충전하기</button>
+<a href="{{ url_for('car.charging_page') }}"><button type="button" class="btn btn-primary">충전하기</button></a>
 </div>
 
 
