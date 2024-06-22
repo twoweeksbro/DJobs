@@ -5,10 +5,13 @@ from werkzeug.utils import redirect
 
 from hello.models import Charge
 from hello import db
+from views.auth_views import login_required
+
 
 bp = Blueprint('car', __name__, url_prefix='/car')
 
 @bp.route('/charging/', methods=('GET','POST'))
+@login_required
 def charging_page():
     if request.method == 'POST':
         data = request.get_json()
@@ -32,6 +35,7 @@ def charging_page():
     return render_template('pages/charging.html')
 
 @bp.route('/mypage')
+@login_required
 def my_page():
     return render_template('pages/mypage.html')
 
