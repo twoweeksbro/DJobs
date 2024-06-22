@@ -20,3 +20,11 @@ class User(db.Model):
     car = db.Column(db.String(200))
     name = db.Column(db.String(100))
     email = db.Column(db.String(120), unique=True, nullable=False)
+
+class Charge(db.Model):
+    name = db.Column(db.String(100), primary_key=True)
+    parking = db.Column(db.String(50))
+    position = db.Column(db.String(20))
+    model = db.Column(db.String(100))
+    create_date = db.Column(db.DateTime())
+    expected_time = db.Column(db.String(100))

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template,url_for
 
+from hello.models import Charge
 bp = Blueprint('car', __name__, url_prefix='/car')
 
 @bp.route('/charging')

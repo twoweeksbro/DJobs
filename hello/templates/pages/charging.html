@@ -14,8 +14,8 @@
 <form>
     <select class="form-select" aria-label="Default select example">
         <option selected>주차장 선택</option>
-        <option value="1">📃대구테크비즈센터</option>
-        <option value="2">🧑‍🎨삼성창조캠퍼스</option>
+        <option value="대구테크비즈센터">📃대구테크비즈센터</option>
+        <option value="삼성창조캠퍼스">🧑‍🎨삼성창조캠퍼스</option>
         <option value="3">---준비중입니다---</option>
     </select>
 
@@ -38,18 +38,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="box">1</div>
-    <div class="box">2</div>
-    <div class="box">3</div>
-    <div class="box">4</div>
-    <div class="box">5</div>
-    <div class="box">6</div>
-    <div class="box">7</div>
-    <div class="box">8</div>
-    <div class="box">9</div>
-    <div class="box">10</div>
-    <div class="box">11</div>
-    <div class="box">12</div>
+                        <div class="box" data-value="1번">1</div>
+                        <div class="box" data-value="2번">2</div>
+                        <div class="box" data-value="3번">3</div>
+                        <div class="box" data-value="4번">4</div>
+                        <div class="box" data-value="5번">5</div>
+                        <div class="box" data-value="6번">6</div>
+                        <div class="box" data-value="7번">7</div>
+                        <div class="box" data-value="8번">8</div>
+                        <div class="box" data-value="9번">9</div>
+                        <div class="box" data-value="10번">10</div>
+                        <div class="box" data-value="11번">11</div>
+                        <div class="box" data-value="12번">12</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
@@ -61,18 +61,19 @@
     </div>
 
     <div>
-        <h4>선택된 주차 위치: </h4>
+
+        <h4 id="res">선택된 주차 위치: </h4>
     </div>
     <div>
         <h4>차종</h4>
         <select id="model" class="form-select" aria-label="Default select example">
             <option selected value="../../static/images/car.png">차종 선택</option>
-            <option value="../../static/images/spider.jpg">📃현대 아이오닉5</option>
-            <option value="2">🧑‍🎨제네시스 GV60</option>
+            <option value="../../static/images/spider.jpg">현대 아이오닉5</option>
+            <option value="2">제네시스 GV60</option>
             <option value="3">기아 EV6</option>
             <option value="../../static/TeslaModel3.png">테슬라 모델 3</option>
-            <option value="5">🧑‍🎨테슬라 모델 Y</option>
-            <option value="6"></option>
+            <option value="5">테슬라 모델 Y</option>
+            <option value="6">자전거</option>
         </select>
         <img id="myImg" src="../../static/images/spider.jpg"/>
     </div>
@@ -81,6 +82,7 @@
 </form>
 
 <script>
+    <!-- 차종 선택 이미지 js-->
     let changeimg = document.getElementById("model");
     let myImg = document.getElementById("myImg");
 
@@ -90,6 +92,16 @@
     }
     changeImage();
     changeimg.onchange = changeImage;
+
+    <!-- 주차 위치 선택 js test-->
+        var options = document.getElementsByClassName('box');
+    for (var i = 0; i < options.length; i++) {
+        options[i].onclick = function() {
+            var selectedValue = this.getAttribute('data-value');
+            document.getElementById('res').innerText = '주차 위치: ' + selectedValue;
+            modal.style.display = "none";
+        }
+    }
 
 </script>
 
