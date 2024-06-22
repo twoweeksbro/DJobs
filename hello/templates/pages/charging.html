@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>D-Jobs님 환영합니다.</h2>
+<h2>{{ g.user.name }}님 환영합니다.</h2>
 
 
 <div id="map" style="width:100%;height:350px;"></div>
@@ -11,8 +11,8 @@
 
 </script>
 <h4>주차장 위치</h4>
-<form>
-    <select class="form-select" aria-label="Default select example">
+<form id="jsonForm">
+    <select class="form-select" id="parkingLot" aria-label="Default select example">
         <option selected>주차장 선택</option>
         <option value="대구테크비즈센터">📃대구테크비즈센터</option>
         <option value="삼성창조캠퍼스">🧑‍🎨삼성창조캠퍼스</option>
@@ -102,6 +102,43 @@
             modal.style.display = "none";
         }
     }
+
+    <!--json POST-->
+    document.getElementById('jsonForm').addEventListener('submit', function(event){
+        event.preventDefault();
+        var name = '{{ g.user.name }}';
+        var parking = document.getElementById('parkingLot').value;
+
+        var str = document.getElementById('res').innerText;
+        const regex = /[^0-9]/g;
+        var position = str.replace(regex,"")
+
+        var selectElement = document.getElementById("model");
+        var model = selectElement.options[selectElement.selectedIndex].text;
+        console.log(parking);
+        var data = {
+            name: name,
+            parking: parking,
+            position: position,
+            model: model
+        };
+
+        fetch('/car/charging', {
+            method: 'POST',
+             headers: {
+            'Content-Type': 'application/json'
+  },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:',data);
+            alert('Data submitted successfully!');
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+        });
+    });
 
 </script>
 
