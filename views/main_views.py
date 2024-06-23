@@ -30,5 +30,7 @@ def index():
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('pages/landing.html', form=form)
+
+
 # def index():
 #    return redirect(url_for('question._list'))

@@ -22,16 +22,17 @@ def charging_page():
 
         minn = 10
         cnt = Charge.query.count()
-        minn = minn + int(cnt/3)
+        minn = minn + (int(cnt/3) * 5)
 
-        cha = Charge(id=cnt+1,name=name,parking=parking,position=position,
-                     model=model,create_date=datetime.now(),expected_time=minn)
+        cha = Charge(id=cnt+1, name=name, parking=parking, position=position,
+                     model=model, create_date=datetime.now(), expected_time=minn)
 
 
         db.session.add(cha)
         db.session.commit()
         print(f"성공 Received name: {name}, parking: {parking}, position: {position}, model: {model}")
-        return redirect(url_for('main.index'))
+        #return render_template('pages/landing.html')
+        return jsonify(success=True)
 
     return render_template('pages/charging.html')
 
