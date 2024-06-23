@@ -24,7 +24,8 @@ def charging_page():
         cnt = Charge.query.count()
         minn = minn + int(cnt/3)
 
-        cha = Charge(name=name,parking=parking,position=position,model=model,create_date=datetime.now(),expected_time=minn)
+        cha = Charge(id=cnt+1,name=name,parking=parking,position=position,
+                     model=model,create_date=datetime.now(),expected_time=minn)
 
 
         db.session.add(cha)
