@@ -23,6 +23,9 @@ background-color: rgb(30,107,255)!important;
 .navbar a{
     color: white !important;
 }
+input{
+
+}
 
 nav, h1, h2, h3, h4, h5, h6, p, li, button, input {
   font-family: "Gothic A1", sans-serif;

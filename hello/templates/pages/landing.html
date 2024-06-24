@@ -22,9 +22,9 @@
 -->
 <header class="py-5 bg-image-full" style="background-color:white; color: color;">
     <div class="text-center my-5">
-        <img class="img-fluid rounded-circle mb-4" style="width:300px; height:300px;" src="../static/images/webcharger.gif" alt="spider"/>
+        <img class="img-fluid rounded-circle mb-4" style="width:350px; height:350px;" src="../static/images/webcharger.gif" alt="spider"/>
         {% if not g.user %}
-        <div class="container w-25">
+        <div class="container w-50">
             <h5 class="my-3 border-bottom pb-2">로그인</h5>
             <form method="post">
                 {{ form.csrf_token }}
@@ -44,9 +44,9 @@
         </div>
         {% endif %}
 
-
-        <h1 class="text-white fs-3 fw-bolder">차세대 전기차 충전 플랫폼</h1>
-        <p class="text-white-50 mb-0">Charlotte</p>
+        <br/>
+        <h1 class="text-black fs-3 fw-bolder">차세대 전기차 충전 플랫폼</h1>
+        <p class="text-black-50 mb-0">Charlotte</p>
         {% if g.user %}
         <div>
         <a href="{{ url_for('car.charging_page') }}">
@@ -68,7 +68,7 @@
             <div class="col-lg-6">
                 <h2>차량을 이동시킬 필요가 없습니다!</h2>
                 <p class="lead"></p>
-                <p class="mb-0">설명</p>
+                <p class="mb-0">차량이 움직이지 않고 충전기가 움직입니다!</p>
             </div>
         </div>
     </div>
