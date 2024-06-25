@@ -40,7 +40,7 @@ nav, h1, h2, h3, h4, h5, h6, p, li, button, input {
 }
 
 .landbt{
-    width: 200px;
+    width: 210px;
     height: 50px;
     hover: grey;
 }
@@ -101,13 +101,13 @@ nav-link-color: black;
 .modal-body{
 display: flex;
             flex-wrap: wrap;
-            width: 500px; /* 전체 너비를 설정합니다 */
+            width: min(500px,100%); /* 전체 너비를 설정합니다 */
 
 }
 
 .box {
-          width: 100px; /* 각 사각형의 너비 */
-            height: 100px; /* 각 사각형의 높이 */
+          width: min(100px,20%); /* 각 사각형의 너비 */
+           height: 100px; /* 각 사각형의 높이 */
             background-color: #007bff; /* 배경색 */
             margin: 5px; /* 사각형 간의 간격 */
             display: flex;

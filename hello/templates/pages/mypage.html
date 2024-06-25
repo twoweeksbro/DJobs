@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2> {{ g.user.name }} 님 환영합니다! </h2>
+<h2 class="fw-bolder mt-3"> {{ g.user.name }} 님 환영합니다! </h2>
 
-<h4> 충전 내역 </h4>
+<h4 class="fw-bolder"> 충전 내역 </h4>
 <div class="fixed-table-container">
     <div class="fixed-table-body">
         <table class="table" style="white-space: nowrap;">
@@ -84,8 +84,8 @@
 <div id="daumRoughmapContainer1717938479695" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
 
-<div style="height: 400px">
-<a href="{{ url_for('car.charging_page') }}"><button type="button" class="btn btn-primary">충전하기</button></a>
+<div style="height: 400px ">
+<a href="{{ url_for('car.charging_page') }}"><button type="button" class="btn btn-primary ladnbt">충전하기</button></a>
 </div>
 
 

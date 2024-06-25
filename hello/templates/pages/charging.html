@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>{{ g.user.name }}님 환영합니다.</h2>
+<div class="container ">
+<h4 class="fw-bolder mt-3">{{ g.user.name }} 님 환영합니다.</h4>
 
 
-<div id="map" style="width:75%;height:350px;"></div>
+<div id="map" style="width:100%;height:350px;"></div>
 <p id="result"></p>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=efb9f60a7a90695f53ab5c5b69ff2cae"></script>
 
-<h4>주차장 위치</h4>
+<h4 class="fw-bolder">주차장 위치</h4>
 <form id="jsonForm">
-    <select class="form-select" id="parkingLot" aria-label="Default select example">
+    <select class="form-select mb-5" id="parkingLot" aria-label="Default select example">
         <option selected>주차장 선택</option>
         <option value="대구테크비즈센터">📃대구테크비즈센터</option>
         <option value="삼성창조캠퍼스">🧑‍🎨삼성창조캠퍼스</option>
@@ -18,20 +19,22 @@
     </select>
 
     <div>
-        <h4>주차 위치</h4>
+        <h4 class="mb-3">주차 위치</h4>
 
         <!-- Button trigger modal -->
         <!-- 모달을 실행할 버튼 -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary mb-5 landbt" data-bs-toggle="modal" data-bs-target="#exampleModal">
             주차 위치 선택
         </button>
+            </div>
 
         <!-- 모달 -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">주차 위치 선택</h1>
+                        <h1 class="modal-title fs-5 " id="exampleModalLabel">주차 위치 선택</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -49,8 +52,7 @@
                         <div class="box" data-value="12번">12</div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                        <button type="button" class="btn btn-primary">선택하기</button>
+                        <button type="button" class="btn btn-primary " data-bs-dismiss="modal">선택하기</button>
                     </div>
                 </div>
             </div>
@@ -59,11 +61,11 @@
 
     <div>
 
-        <h4 id="res">선택된 주차 위치: </h4>
+        <h4 id="res" class="mb-3">선택된 주차 위치: </h4>
     </div>
     <div>
-        <h4>차종</h4>
-        <select id="model" class="form-select" aria-label="Default select example">
+        <h4 class="fw-bolder">차종</h4>
+        <select id="model" class="form-select mb-3" aria-label="Default select example">
             <option selected value="../../static/images/car.png">차종 선택</option>
             <option value="../../static/images/spider.jpg">현대 아이오닉5</option>
             <option value="2">제네시스 GV60</option>
@@ -72,13 +74,19 @@
             <option value="5">테슬라 모델 Y</option>
             <option value="6">자전거</option>
         </select>
-        <img id="myImg" src="../../static/images/spider.jpg"/>
+        <div style="text-align: center;">
+        <img id="myImg" src="../../static/images/spider.jpg" style="max-width: 100%; height:auto;"/>
+        </div>
     </div>
+    <div class="d-flex justify-content-center">
+
     <a href=" {{ url_for('main.index') }} ">
-    <button type="submit" class="btn btn-primary">충전 등록 !</button>
+    <button type="submit" class=" landbt btn btn-primary mb-5 " >충전 등록 !</button>
     </a>
+    </div>
 </form>
 
+</div>
 <script>
     <!-- 차종 선택 이미지 js-->
     let changeimg = document.getElementById("model");
@@ -131,7 +139,7 @@
         .then(response => response.json())
         .then(data => {
             console.log('Success:',data);
-            alert('Data submitted successfully!');
+            alert('충전이 등록되었습니다!');
             <!-- window.location.href = 'http://127.0.0.1:5000'; -->
             window.history.go(-1);
         })

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-    <h5 class="my-3 border-bottom pb-2">계정생성</h5>
+<div class="container w-50">
+    <h5 class="my-3 mt-5 border-bottom pb-3 text-center fw-bolder">계정생성</h5>
     <form method="post">
         {{ form.csrf_token }}
         {% include "form_errors.html" %}
         <div class="mb-3">
-            <label for="name">이름</label>
+            <label for="name">닉네임</label>
             <input type="text" class="form-control" name="name" id="name"
                    value="{{ form.name.data or '' }}">
         </div>
@@ -25,7 +25,9 @@
             <input type="password" class="form-control" name="password2" id="password2"
                    value="{{ form.password2.data or '' }}">
         </div>
+        <div class="d-flex justify-content-center mb-5 mt-5">
         <button type="submit" class="btn btn-primary">회원가입</button>
+        </div>
     </form>
 </div>
 {% endblock %}

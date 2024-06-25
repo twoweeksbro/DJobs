@@ -73,5 +73,6 @@ var downCount = 0;
 kakao.maps.event.addListener(polygon, 'mousedown', function() {
     console.log(event);
     var resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '삼성 창조 캠퍼스 주차장' + (++downCount);
+    //resultDiv.innerHTML = '서비스 가능 주차장 입니다!' + (++downCount);
+    resultDiv.innerHTML = '서비스 가능 주차장 입니다!';
 });
